@@ -1,0 +1,127 @@
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 50px;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px) saturate(160%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
+    box-shadow:0 1px 0 rgba(13,31,45,.06);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-family: var(--font-heading, inherit);
+    font-size:26px;
+    font-weight:800;
+    cursor:pointer;
+    color:#0a9396;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.logo span{
+    color:#0d1f2d;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:26px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#3d4a52;
+    font-weight:600;
+    font-size: 0.94rem;
+    transition: color .2s;
+    position: relative;
+}
+
+.nav-links a:hover{
+    color:#0a9396;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #0a9396;
+    transition: width .2s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.register-btn,
+.logout-btn{
+
+    padding:9px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:700;
+    font-size: 0.9rem;
+    transition: transform .15s, box-shadow .2s;
+}
+
+.register-btn{
+    background:#0a9396;
+    color:white;
+    box-shadow: 0 4px 14px rgba(10,147,150,.28);
+}
+
+.register-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(10,147,150,.36);
+}
+
+.logout-btn{
+    background:#fff;
+    color:#e53935;
+    border: 1.5px solid #fde2e1;
+}
+
+.logout-btn:hover {
+    background: #fef2f2;
+}
+
+.menu-icon{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+    .menu-icon{
+        display:block;
+    }
+
+    .nav-links{
+
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:white;
+
+        display:none;
+        flex-direction:column;
+        padding:20px;
+        box-shadow:0 4px 12px rgba(0,0,0,.1);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+}

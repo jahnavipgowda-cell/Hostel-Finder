@@ -1,0 +1,205 @@
+.filter-box {
+    max-width: 1100px;
+    margin: 20px auto 0;
+    padding: 20px 24px;
+    background: white;
+    border-radius: var(--radius-lg, 16px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    align-items: end;
+    box-sizing: border-box;
+}
+
+.filter-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0; /* prevents children from forcing the grid track wider than its column */
+}
+
+.filter-field label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--muted, #6b7280);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.filter-field select,
+.filter-field input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border, #e2e8f0);
+    font-size: 0.9rem;
+    background: var(--chalk, #f8f9fa);
+    color: var(--ink, #0d1f2d);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.filter-field select:focus,
+.filter-field input:focus {
+    border-color: #0a9396;
+    background: white;
+}
+
+/* ---------- Price range (grouped min/max) ---------- */
+
+/* This field is allowed to take two grid tracks on wider layouts so the
+   range box has room to breathe, without ever pushing outside the grid. */
+.price-range-field {
+    grid-column: span 2;
+    min-width: 0;
+}
+
+.price-range-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--chalk, #f8f9fa);
+    border: 1.5px solid var(--border, #e2e8f0);
+    border-radius: 8px;
+    padding: 0 10px;
+    transition: border-color 0.2s, background 0.2s;
+    overflow: hidden;
+}
+
+.price-range-box:focus-within {
+    border-color: #0a9396;
+    background: white;
+}
+
+.price-range-currency {
+    color: var(--muted, #6b7280);
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.price-range-sep {
+    color: var(--muted, #6b7280);
+    flex-shrink: 0;
+    padding: 0 4px;
+}
+
+/* The inputs live inside the bordered box now, so they get their own
+   unbordered, transparent styling and a tight min-width instead of each
+   claiming a full grid column — this is what actually stops them from
+   drifting outside the filter bar. */
+.price-range-box input {
+    border: none !important;
+    background: transparent !important;
+    padding: 10px 4px !important;
+    width: 100%;
+    min-width: 0;
+    /* Roughly fits a 6-digit rupee amount without growing further */
+    flex: 1 1 0;
+}
+
+.price-range-box input:focus {
+    border: none !important;
+}
+
+/* Hide the spinner arrows — they were the main thing quietly widening the
+   inputs' intrinsic size and nudging the pair past the box edge. */
+.price-range-box input[type="number"]::-webkit-outer-spin-button,
+.price-range-box input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.price-range-box input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* ---------- Amenity chips ---------- */
+
+.amenity-field {
+    grid-column: 1 / -1;
+}
+
+.amenity-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.amenity-chip {
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border, #e2e8f0);
+    background: var(--chalk, #f8f9fa);
+    color: var(--ink, #0d1f2d);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.1s;
+    flex: 0 0 auto;
+}
+
+.amenity-chip:hover {
+    border-color: #0a9396;
+    transform: translateY(-1px);
+}
+
+.amenity-chip.active {
+    background: #0a9396;
+    border-color: #0a9396;
+    color: white;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 10px;
+    grid-column: span 1;
+}
+
+/* Scoped to .filter-actions specifically — NOT .filter-box button. That
+   broader selector used to catch every button in the filter panel,
+   including the amenity chips, and (at 0-1-1 specificity) beat
+   .amenity-chip's 0-1-0, silently overriding the unselected chip style
+   with this same teal. The end result: every chip looked identical to
+   .active regardless of whether it was actually selected — the toggle
+   worked in state, it just wasn't visible. */
+.filter-actions button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #0a9396;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.88rem;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.15s;
+    flex: 1;
+}
+
+.filter-actions button:hover {
+    background: #005f73;
+    transform: translateY(-1px);
+}
+
+.reset-btn {
+    background: #EF4444 !important;
+}
+.reset-btn:hover {
+    background: #dc2626 !important;
+}
+
+@media (max-width: 640px) {
+    .filter-box {
+        grid-template-columns: 1fr 1fr;
+        margin: 20px 12px 0;
+        padding: 16px;
+    }
+    .price-range-field,
+    .filter-actions {
+        grid-column: span 2;
+    }
+}

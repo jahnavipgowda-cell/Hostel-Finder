@@ -1,0 +1,59 @@
+.review-card{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+
+}
+
+.review-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.review-comment{
+
+    margin:15px 0;
+
+    line-height:1.6;
+
+}
+
+.verified-review{
+
+    background:#10b981;
+
+    color:white;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+}
+
+.ai-summary{
+
+    margin-top:15px;
+
+    background:#EEF9FF;
+
+    padding:12px;
+
+    border-left:5px solid #2196F3;
+
+    border-radius:6px;
+
+}

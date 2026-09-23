@@ -1,0 +1,94 @@
+.profile-page {
+    max-width: 720px;
+    margin: 40px auto 80px;
+    padding: 0 20px;
+}
+
+.profile-card {
+    background: white;
+    border-radius: var(--radius-lg, 20px);
+    box-shadow: var(--shadow, 0 4px 24px rgba(13,31,45,0.10));
+    padding: 32px;
+}
+
+.profile-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--teal, #0a9396);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.profile-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+.profile-field label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted, #6b7280);
+}
+.profile-field input {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border, #e5e9ec);
+    font-size: 0.95rem;
+}
+.profile-field input:disabled {
+    background: var(--chalk, #f8f5f0);
+    color: var(--muted, #6b7280);
+}
+
+.profile-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.profile-actions button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+.profile-save { background: var(--teal, #0a9396); color: white; }
+.profile-logout { background: #fee2e2; color: #7f1d1d; }
+
+.profile-banner {
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 0.88rem;
+}
+.profile-banner.success { background: #d1fae5; color: #064e3b; }
+.profile-banner.error { background: #fee2e2; color: #7f1d1d; }
+
+.profile-saved-section {
+    margin-top: 32px;
+}
+.profile-saved-section h3 {
+    margin-bottom: 16px;
+}
+.profile-saved-empty {
+    color: var(--muted, #6b7280);
+    font-size: 0.9rem;
+    background: white;
+    border-radius: var(--radius, 14px);
+    padding: 24px;
+    text-align: center;
+    box-shadow: var(--shadow, 0 4px 24px rgba(13,31,45,0.10));
+}
+.profile-saved-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}

@@ -1,0 +1,98 @@
+/* ═══════════════════════════════════════════════
+   NestIQ Design System — shared design tokens
+   Palette: Deep Teal / Warm Amber / Chalk White
+   Fonts: Plus Jakarta Sans (headings/UI) + Inter (body)
+   — chosen because they're the pairing real product
+   teams reach for (Linear, Vercel-adjacent SaaS), not
+   a "template" display font — it's meant to read as
+   an actual shipped app rather than a portfolio piece.
+═══════════════════════════════════════════════ */
+:root {
+  --ink:       #0d1f2d;
+  --teal:      #0a9396;
+  --teal-dark: #005f73;
+  --teal-glow: #94d2bd;
+  --amber:     #e9c46a;
+  --amber-hot: #f4a261;
+  --danger:    #e76f51;
+  --success:   #10b981;
+  --chalk:     #f8f5f0;
+  --white:     #ffffff;
+  --muted:     #6b7280;
+  --border:    #e5e9ec;
+  --card-bg:   #ffffff;
+  --radius:    14px;
+  --radius-lg: 20px;
+  --shadow:    0 4px 24px rgba(13, 31, 45, 0.10);
+  --shadow-lg: 0 12px 48px rgba(13, 31, 45, 0.16);
+  --font-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-body: 'Inter', 'Plus Jakarta Sans', sans-serif;
+}
+
+* , *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--chalk);
+  color: var(--ink);
+  min-height: 100vh;
+  font-size: 15.5px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+
+h1 { font-weight: 800; letter-spacing: -0.02em; }
+
+p {
+  margin: 0 0 1em;
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+input, select, textarea {
+  font-family: var(--font-body);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--chalk);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--teal-glow);
+  border-radius: 99px;
+}
+
+/* Consistent focus ring across the app instead of each browser's default */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
